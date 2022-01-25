@@ -8,7 +8,7 @@ jobs:
       fail-fast: true
       matrix:
         projectPath:
-          - airborne
+          - ../airborne
         testMode:
           - playmode
 
@@ -37,7 +37,7 @@ jobs:
         with:
           projectPath: ${{ matrix.projectPath }}
           testMode: ${{ matrix.testMode }}
-          artifactPath: ${{ matrix.testMode }}-artifacts
+          artifactsPath: ${{ matrix.testMode }}-artifacts
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           
       # Upload Test Artifacts
