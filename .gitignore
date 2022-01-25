@@ -5,3 +5,5 @@ Library
 *.sln
 *.csproj
 UserSettings
+Temp
+Builds

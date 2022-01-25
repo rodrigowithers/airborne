@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Spikes_Bot
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 146581580031787175, guid: 1e08a2d4ae7560c46865f21548670246, type: 3}
+  - {fileID: -2456770870179891754, guid: 1e08a2d4ae7560c46865f21548670246, type: 3}
+  - {fileID: 3140806076384082289, guid: 1e08a2d4ae7560c46865f21548670246, type: 3}
+  - {fileID: -1460907820723509046, guid: 1e08a2d4ae7560c46865f21548670246, type: 3}
+  m_MinSpeed: 16
+  m_MaxSpeed: 16
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 1

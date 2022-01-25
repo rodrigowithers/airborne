@@ -1,0 +1,16 @@
+{
+    "name": "Gmae",
+    "rootNamespace": "",
+    "references": [
+        "GUID:80e0fa09c565ee94d9c068023603efe2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

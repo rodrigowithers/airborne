@@ -1,46 +1,31 @@
 fileFormatVersion: 2
-guid: fec5e164969b1c34e82b1b0464874245
+guid: 1e08a2d4ae7560c46865f21548670246
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5979008488594524008
-    second: Wall_TopLeft
+      213: -8596983795546452828
+    second: Spikes_TopLeft_0
   - first:
-      213: 1913860602721141779
-    second: Wall_Top
+      213: -7968488456390447538
+    second: Spikes_TopLeft_1
   - first:
-      213: -4569824520835217933
-    second: Wall_TopRight
+      213: -653171352349037355
+    second: Spikes_TopLeft_2
   - first:
-      213: -7824540975354739932
-    second: Wall_Left
+      213: 2021086410054492302
+    second: Spikes_TopLeft_3
   - first:
-      213: 1588627153026928075
-    second: Wall_Right
+      213: 146581580031787175
+    second: Spikes_Bot_0
   - first:
-      213: 4238620846075884223
-    second: Wall_BotRight
+      213: -2456770870179891754
+    second: Spikes_Bot_1
   - first:
-      213: 8550486988809280638
-    second: Wall_Bot
+      213: 3140806076384082289
+    second: Spikes_Bot_2
   - first:
-      213: -4758428708751416214
-    second: Wall_BotLeft
-  - first:
-      213: -8756881273016254659
-    second: Player
-  - first:
-      213: 7735564739058791174
-    second: Boss_Icon
-  - first:
-      213: 8610777128887085051
-    second: Lifebar_BG
-  - first:
-      213: -592724266994570874
-    second: Lifebar_Fill
-  - first:
-      213: -3825999517094303245
-    second: Square
+      213: -1460907820723509046
+    second: Spikes_Bot_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -82,7 +67,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -154,314 +139,209 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wall_TopLeft
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: -8}
-        - {x: -8, y: 8}
-        - {x: 8, y: 8}
-        - {x: 8, y: 4}
-        - {x: -4, y: 4.133377}
-        - {x: -4, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8983740357b460da0800000000000000
-      internalID: -5979008488594524008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_Top
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: 4}
-        - {x: -8, y: 8}
-        - {x: 8, y: 8}
-        - {x: 8, y: 4}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3140fcef3166f8a10800000000000000
-      internalID: 1913860602721141779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_TopRight
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: 4, y: -8}
-        - {x: 4.133377, y: 4}
-        - {x: -8, y: 4}
-        - {x: -8, y: 8}
-        - {x: 8, y: 8}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f54fbd6fc8b490c0800000000000000
-      internalID: -4569824520835217933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_Left
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: -8}
-        - {x: -8, y: 8}
-        - {x: -4, y: 8}
-        - {x: -4, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4230e796075a96390800000000000000
-      internalID: -7824540975354739932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_Right
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: 4, y: -8}
-        - {x: 4, y: 8}
-        - {x: 8, y: 8}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: bcdc5b09affeb0610800000000000000
-      internalID: 1588627153026928075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_BotRight
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: -8}
-        - {x: -8, y: -4}
-        - {x: 4, y: -4}
-        - {x: 4, y: 8}
-        - {x: 8, y: 8}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb23bebc33b92da30800000000000000
-      internalID: 4238620846075884223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_Bot
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: -8}
-        - {x: -8, y: -4}
-        - {x: 8, y: -4}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7c93982d9e69a670800000000000000
-      internalID: 8550486988809280638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_BotLeft
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: -8}
-        - {x: -8, y: 8}
-        - {x: -4, y: 8}
-        - {x: -4, y: -4}
-        - {x: 8, y: -4}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: a64e9d5fc4aa6fdb0800000000000000
-      internalID: -4758428708751416214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player
+      name: Spikes_TopLeft_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
+        y: 32
         width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: 4}
+        - {x: -4, y: 4}
+        - {x: -4, y: -8}
       tessellationDetail: 0
       bones: []
-      spriteID: d3f789dc0ee497680800000000000000
-      internalID: -8756881273016254659
+      spriteID: 4ac0aa669c061b880800000000000000
+      internalID: -8596983795546452828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Icon
+      name: Spikes_TopLeft_1
       rect:
         serializedVersion: 2
         x: 48
-        y: 48
+        y: 32
         width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: 4}
+        - {x: -4, y: 4}
+        - {x: -4, y: -8}
       tessellationDetail: 0
       bones: []
-      spriteID: 603f2a8352f3a5b60800000000000000
-      internalID: 7735564739058791174
+      spriteID: e4eeb00c7fd3a6190800000000000000
+      internalID: -7968488456390447538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lifebar_BG
+      name: Spikes_TopLeft_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: 4}
+        - {x: -4, y: 4}
+        - {x: -4, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc26cd9d187fe6f0800000000000000
+      internalID: -653171352349037355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_TopLeft_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: 4}
+        - {x: -4, y: 4}
+        - {x: -4, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e80eaabb1675c0c10800000000000000
+      internalID: 2021086410054492302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_Bot_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: -4}
+        - {x: 8, y: -4}
+        - {x: 8, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a00960ab23c80200800000000000000
+      internalID: 146581580031787175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_Bot_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 50
-        width: 48
-        height: 5
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 1, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: -4}
+        - {x: 8, y: -4}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
-      spriteID: bf76f574d20af7770800000000000000
-      internalID: 8610777128887085051
+      spriteID: 6d5766cf8ebc7edd0800000000000000
+      internalID: -2456770870179891754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lifebar_Fill
+      name: Spikes_Bot_2
       rect:
         serializedVersion: 2
-        x: 65
-        y: 57
-        width: 46
-        height: 3
+        x: 112
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: -4}
+        - {x: 8, y: -4}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
-      spriteID: 689e8086b6836c7f0800000000000000
-      internalID: -592724266994570874
+      spriteID: 179f24b5c72669b20800000000000000
+      internalID: 3140806076384082289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square
+      name: Spikes_Bot_3
       rect:
         serializedVersion: 2
-        x: 38
-        y: 54
-        width: 4
-        height: 4
+        x: 160
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: -4}
+        - {x: 8, y: -4}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
-      spriteID: 3f927c0d5b157eac0800000000000000
-      internalID: -3825999517094303245
+      spriteID: ac86f28c310d9bbe0800000000000000
+      internalID: -1460907820723509046
       vertices: []
       indices: 
       edges: []
