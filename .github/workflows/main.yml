@@ -14,8 +14,8 @@ jobs:
 
     steps:
       # Checkout
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        name: Checkout Repository
         with:
           lfs: true
 
@@ -29,17 +29,17 @@ jobs:
             Library-
 
       # Run tests
-      - name: Run Tests
-        uses: game-ci/unity-test-runner@v2
+      - uses: game-ci/unity-test-runner@v2
+        name: Run Tests
         id: tests
-      env:
-        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-      with:
-        projectPath: ${{ matrix.projectPath }}
-        testMode: ${{ matrix.testMode }}
-        artifactPath: ${{ matrix.testMode }}-artifacts
-        githubToken: ${{ secrets.GITHUB_TOKEN }}
-      
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: ${{ matrix.projectPath }}
+          testMode: ${{ matrix.testMode }}
+          artifactPath: ${{ matrix.testMode }}-artifacts
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          
       # Upload Test Artifacts
       - uses: actions/upload-artifact@v2
         if: always()
