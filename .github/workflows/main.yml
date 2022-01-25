@@ -28,24 +28,24 @@ jobs:
             Library-MyProjectName-
             Library-
 
-      # Run tests
-      - uses: game-ci/unity-test-runner@v2
-        name: Run Tests
-        id: tests
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        with:
-          projectPath: ${{ matrix.projectPath }}
-          testMode: ${{ matrix.testMode }}
-          artifactsPath: ${{ matrix.testMode }}-artifacts
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+      # # Run tests
+      # - uses: game-ci/unity-test-runner@v2
+      #   name: Run Tests
+      #   id: tests
+      #   env:
+      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      #   with:
+      #     projectPath: ${{ matrix.projectPath }}
+      #     testMode: ${{ matrix.testMode }}
+      #     artifactsPath: ${{ matrix.testMode }}-artifacts
+      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
           
-      # Upload Test Artifacts
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: Test Results for ${{ matrix.testMode }}
-          path: ${{ steps.tests.outputs.artifactsPath}}
+      # # Upload Test Artifacts
+      # - uses: actions/upload-artifact@v2
+      #   if: always()
+      #   with:
+      #     name: Test Results for ${{ matrix.testMode }}
+      #     path: ${{ steps.tests.outputs.artifactsPath}}
       
       # Build
       - name: Build Project
@@ -54,7 +54,7 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           unityVersion: 2020.3.26f1
-          targetPlatform: WebGL
+          targetPlatform: Android
 
       # Upload Build Artifacts
       - uses: actions/upload-artifact@v2
