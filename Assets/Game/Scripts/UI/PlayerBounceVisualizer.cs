@@ -18,6 +18,9 @@ namespace Game.Scripts.UI
 
         private void Update()
         {
+            if(_player == null)
+                return;
+            
             float scale = 1 - Mathf.Clamp01(_player.BounceCooldown / _player.BounceDelay);
             BounceCooldownBar.localScale = new Vector3(scale, 1, 1);
         }

@@ -26,6 +26,18 @@ TextureImporter:
   - first:
       213: -1460907820723509046
     second: Spikes_Bot_3
+  - first:
+      213: 7918978110993158367
+    second: Spikes_BotLeft_0
+  - first:
+      213: -6171076599750044381
+    second: Spikes_BotLeft_1
+  - first:
+      213: -8508162785505467052
+    second: Spikes_BotLeft_2
+  - first:
+      213: -7041490910260353354
+    second: Spikes_BotLeft_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -342,6 +354,90 @@ TextureImporter:
       bones: []
       spriteID: ac86f28c310d9bbe0800000000000000
       internalID: -1460907820723509046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_BotLeft_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd057d9a2acd5ed60800000000000000
+      internalID: 7918978110993158367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_BotLeft_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3255c2e378eeb5aa0800000000000000
+      internalID: -6171076599750044381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_BotLeft_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 455afb6560fece980800000000000000
+      internalID: -8508162785505467052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_BotLeft_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b62ac41359974e90800000000000000
+      internalID: -7041490910260353354
       vertices: []
       indices: 
       edges: []
