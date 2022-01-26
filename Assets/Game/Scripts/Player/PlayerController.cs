@@ -5,13 +5,15 @@ using Random = UnityEngine.Random;
 
 namespace Game.Scripts.Player
 {
-    public class PlayerController : MonoBehaviour, IPlayer
+    public class PlayerController : MonoBehaviour, IPlayer, IPlayerTransformationStorage
     {
         [SerializeField] private Rigidbody2D _body;
 
         [SerializeField] private float KickForce = 25;
+        
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private LayerMask _damageLayer;
+        [SerializeField] private LayerMask _enemyLayer;
 
         [SerializeField] private ParticleSystem _bounceParticles;
         [SerializeField] private GameObject _deathParticles;
@@ -21,10 +23,22 @@ namespace Game.Scripts.Player
         private Vector2 _initialPos;
         private Vector2 _currentPos;
 
+        private Vector2 _kickDirection;
+        
         private bool _drag;
+        private bool _kicking;
 
         [field: SerializeField] public float BounceDelay { get; set; } = 0.5f;
         public float BounceCooldown { get; set; }
+
+        public Transform GetPlayerTransform()
+        {
+            return transform;
+        }
+        public Vector3 GetPlayerPosition()
+        {
+            return transform.position;
+        }
 
         private void Bounce(Vector2 position)
         {
@@ -48,6 +62,9 @@ namespace Game.Scripts.Player
                 return;
 
             _body.velocity = direction * KickForce;
+            
+            _kicking = true;
+            _kickDirection = direction;
         }
 
         private void Die()
@@ -61,6 +78,7 @@ namespace Game.Scripts.Player
         private void Awake()
         {
             Container.BindSingleton<IPlayer>(this);
+            Container.BindSingleton<IPlayerTransformationStorage>(this);
         }
 
         private void Start()
@@ -122,11 +140,25 @@ namespace Game.Scripts.Player
                 _body.velocity += Vector2.down * 0.1f;
             }
 
+            if (_kicking)
+            {
+                var hit = Physics2D.Raycast(transform.position, _kickDirection, 0.5f, _enemyLayer);
+                DebugExtension.DebugArrow(transform.position, _kickDirection * 0.5f, Color.red);
+                
+                if (hit.collider != null)
+                {
+                    _kicking = false;
+                    // Deal damage to enemy!
+                }
+            }
+
             BounceCooldown -= Time.deltaTime;
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            _kicking = false;
+            
             if (_damageLayer == 1 << other.gameObject.layer)
             {
                 Die();

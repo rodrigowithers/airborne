@@ -44,6 +44,12 @@ TextureImporter:
   - first:
       213: 6576679877001479073
     second: SpriteSet_13
+  - first:
+      213: 554491029882371960
+    second: Boss_Body
+  - first:
+      213: 7409415424923995319
+    second: Boss_Eye
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -478,7 +484,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -486,6 +492,48 @@ TextureImporter:
       bones: []
       spriteID: 1a3022ed08f054b50800000000000000
       internalID: 6576679877001479073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Body
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f774367a2f1b700800000000000000
+      internalID: 554491029882371960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Eye
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 19
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bc05eb721883d660800000000000000
+      internalID: 7409415424923995319
       vertices: []
       indices: 
       edges: []
