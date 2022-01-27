@@ -1,7 +1,6 @@
 ﻿using deJex;
 using Player;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Game.Scripts.UI
 {
@@ -18,8 +17,10 @@ namespace Game.Scripts.UI
 
         private void Update()
         {
-            if(_player == null)
-                return;
+            if (_player.Equals(null))
+            {
+                _player = Container.Resolve<IPlayer>();
+            }
             
             float scale = 1 - Mathf.Clamp01(_player.BounceCooldown / _player.BounceDelay);
             BounceCooldownBar.localScale = new Vector3(scale, 1, 1);

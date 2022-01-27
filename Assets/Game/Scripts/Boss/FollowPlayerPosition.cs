@@ -18,9 +18,9 @@ namespace Game.Scripts.Boss
 
         private void Update()
         {
-            if (_playerTransform == null)
+            if (_playerTransform.Equals(null))
             {
-                return;
+                _playerTransform = Container.Resolve<IPlayerTransformationStorage>();
             }
 
             var dir = (_playerTransform.PlayerPosition - _body.position).normalized;

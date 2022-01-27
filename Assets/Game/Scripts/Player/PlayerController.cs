@@ -31,7 +31,16 @@ namespace Game.Scripts.Player
         [field: SerializeField] public float BounceDelay { get; set; } = 0.5f;
         public float BounceCooldown { get; set; }
 
-        Vector3 IPlayerTransformationStorage.PlayerPosition => transform.position;
+        Vector3 IPlayerTransformationStorage.PlayerPosition
+        {
+            get
+            {
+                if (this == null)
+                    return Vector3.zero;
+                
+                return transform.position;
+            }
+        }
 
         private void Bounce(Vector2 position)
         {
