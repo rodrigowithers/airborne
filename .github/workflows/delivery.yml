@@ -1,0 +1,17 @@
+name: Delivery
+on: pull_request:
+  workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
+  branches:
+    - master
+  tags:
+    - '*'
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    

@@ -2014,7 +2014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 121879086420730568, guid: de0828b1c9770b042aeffa706c3a643f, type: 3}
       propertyPath: KickForce
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 121879087000689770, guid: de0828b1c9770b042aeffa706c3a643f, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value

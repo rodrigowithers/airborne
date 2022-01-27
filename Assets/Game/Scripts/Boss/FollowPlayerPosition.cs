@@ -19,9 +19,11 @@ namespace Game.Scripts.Boss
         private void Update()
         {
             if (_playerTransform == null)
-                _playerTransform = Container.Resolve<IPlayerTransformationStorage>();
+            {
+                return;
+            }
 
-            var dir = (_playerTransform.GetPlayerPosition() - _body.position).normalized;
+            var dir = (_playerTransform.PlayerPosition - _body.position).normalized;
             transform.position = _body.position + dir * _radius;
         }
 
