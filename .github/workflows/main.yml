@@ -62,7 +62,7 @@ jobs:
           androidKeyaliasPass: ${{ SECRETS.ANDROID_KEYALIAS_PASS }}
           unityVersion: 2020.3.26f1
           targetPlatform: Android
-        echo $androidKeystoreBase64 | base64 --decode > $projectPath/$androidKeystoreName          
+        run: echo $androidKeystoreBase64 | base64 --decode > $projectPath/$androidKeystoreName          
 
       # Upload Build Artifacts
       - uses: actions/upload-artifact@v2
