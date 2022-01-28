@@ -54,7 +54,7 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           unityVersion: 2020.3.26f1
-          targetPlatform: Android
+          targetPlatform: WebGL
 
       # Upload Build Artifacts
       - uses: actions/upload-artifact@v2
