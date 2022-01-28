@@ -1,6 +1,14 @@
 name: Build
 on: [push]
 jobs:
+  DecryptKeystore:
+    name: Decrypt Keystore
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" > user.keystore.asc
+          gpg -d --passphrase "${{ sectrets.ANDROID_KEYSTORE_BASE64_PASS }}" --batch user.keystore.asc > app/user.keystore
   build:
     name: Build the project
     runs-on: ubuntu-latest
@@ -46,7 +54,7 @@ jobs:
       #   with:
       #     name: Test Results for ${{ matrix.testMode }}
       #     path: ${{ steps.tests.outputs.artifactsPath}}
-      
+
       # Build
       - name: Build Project
         uses: game-ci/unity-builder@v2
