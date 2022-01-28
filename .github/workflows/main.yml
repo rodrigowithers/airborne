@@ -73,5 +73,5 @@ jobs:
       # Upload Build Artifacts
       - uses: actions/upload-artifact@v2
         with:
-          name: Build
+          name: Android
           path: build
