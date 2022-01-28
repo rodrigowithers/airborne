@@ -21,6 +21,7 @@ jobs:
 
       # Build
       - name: Test Keystore
+        run: echo $androidKeystoreBase64 | base64 --decode > $projectPath/$androidKeystoreName
         with:
           projectPath: ${{ matrix.projectPath }}
           androidKeystoreName: user.keystore
@@ -29,7 +30,6 @@ jobs:
           androidKeyaliasName: ${{ SECRETS.ANDROID_KEYALIAS_NAME }}
           androidKeyaliasPass: ${{ SECRETS.ANDROID_KEYALIAS_PASS }}
 
-      - run: echo $androidKeystoreBase64 | base64 --decode > $projectPath/$androidKeystoreName
 
       # # Cache
       # - uses: actions/cache@v2
