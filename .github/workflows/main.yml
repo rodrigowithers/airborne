@@ -21,7 +21,7 @@ jobs:
 
       # Build
       - name: Test Keystore
-        run: echo $androidKeystoreBase64 | base64 --decode > $projectPath/$androidKeystoreName
+        uses: echo $androidKeystoreBase64 | base64 --decode > $projectPath/$androidKeystoreName
         with:
           projectPath: ${{ matrix.projectPath }}
           androidKeystoreName: user.keystore
