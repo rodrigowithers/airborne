@@ -7,5 +7,6 @@ namespace Game.Scripts.TouchEffects
     {
         public event Action<Vector3> OnTouchDown;
         public event Action<Vector3> OnTouch;
+        public event Action<Vector3> OnDrag;
     }
 }

@@ -1,4 +1,5 @@
 using deJex;
+using Game.Scripts.Boss;
 using Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -144,13 +145,12 @@ namespace Game.Scripts.Player
 
             if (_kicking)
             {
-                var hit = Physics2D.Raycast(transform.position, _kickDirection, 0.5f, _enemyLayer);
-                DebugExtension.DebugArrow(transform.position, _kickDirection * 0.5f, Color.red);
+                var hit = Physics2D.CircleCast(transform.position, 0.2f, _kickDirection, 1f, _enemyLayer);
 
                 if (hit.collider != null)
                 {
                     _kicking = false;
-                    // Deal damage to enemy!
+                    hit.collider.GetComponent<IBreakeable>().TakeDamage(1);
                 }
             }
 

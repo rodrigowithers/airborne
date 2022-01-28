@@ -6,7 +6,7 @@ namespace Game.Scripts.TouchEffects
     public class TouchTrail : MonoBehaviour
     {
         [SerializeField] private TrailRenderer _trailRenderer;
-        
+
         private ITouchController _touchController;
 
         private void Start()
@@ -14,10 +14,10 @@ namespace Game.Scripts.TouchEffects
             _touchController = Container.Resolve<ITouchController>();
 
             _touchController.OnTouchDown += OnTouchDown;
-            _touchController.OnTouch += OnTouch;
+            _touchController.OnDrag += OnDrag;
         }
 
-        private void OnTouch(Vector3 position)
+        private void OnDrag(Vector3 position)
         {
             _trailRenderer.emitting = true;
         }

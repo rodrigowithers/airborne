@@ -50,6 +50,15 @@ TextureImporter:
   - first:
       213: 7409415424923995319
     second: Boss_Eye
+  - first:
+      213: -6607385027980362774
+    second: SpriteSet_16
+  - first:
+      213: 4364155849428310098
+    second: Boss_Hand
+  - first:
+      213: 4023558760638649608
+    second: Boss Shield
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -534,6 +543,73 @@ TextureImporter:
       bones: []
       spriteID: 7bc05eb721883d660800000000000000
       internalID: 7409415424923995319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSet_16
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: aebfef0135add44a0800000000000000
+      internalID: -6607385027980362774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Hand
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1
+        width: 30
+        height: 36
+      alignment: 9
+      pivot: {x: 0.58401513, y: 0.065921836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2581e9d6f98909c30800000000000000
+      internalID: 4364155849428310098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss Shield
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 36
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80517c4006d86d730800000000000000
+      internalID: 4023558760638649608
       vertices: []
       indices: 
       edges: []
