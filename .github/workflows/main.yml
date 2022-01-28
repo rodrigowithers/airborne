@@ -19,6 +19,8 @@ jobs:
         with:
           lfs: true
 
+      - run: echo $androidKeystoreBase64 | base64 --decode > $projectPath/$androidKeystoreName
+
       # Cache
       - uses: actions/cache@v2
         with: 
@@ -62,7 +64,6 @@ jobs:
           androidKeyaliasPass: ${{ SECRETS.ANDROID_KEYALIAS_PASS }}
           unityVersion: 2020.3.26f1
           targetPlatform: Android
-      - run: echo $androidKeystoreBase64 | base64 --decode > $projectPath/$androidKeystoreName          
 
       # Upload Build Artifacts
       - uses: actions/upload-artifact@v2
