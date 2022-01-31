@@ -1,13 +1,8 @@
 name: Delivery
 on:
-  workflow_run:
-    workflows: ["Build"]
-    types:
-      - completed
+  push:
     branches:
       - master
-    tags:
-      - '*'
 jobs:
   appstore:
     name: Deliver to App Store
@@ -26,9 +21,6 @@ jobs:
         testMode:
           - playmode      
     steps:
-      - name: Update Fastlane
-        run: bundle install
-
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -46,7 +38,10 @@ jobs:
         with:
           ruby-version: 2.7.2
           bundler-cache: true
-        
+
+      - name: Update Fastlane
+        run: bundle install
+
       - name: Upload to Google Play Internal
         uses: maierj/fastlane-action@v2.0.1
         with:
