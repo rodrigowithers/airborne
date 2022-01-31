@@ -1,14 +1,13 @@
 name: Delivery
 on:
-  workflow_dispatch: {}
-  # workflow_run:
-  #   workflows: ["Build"]
-  #   types:
-  #     - completed
-  # branches:
-  #   - master
-  # tags:
-  #   - '*'
+  workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
+    branches:
+      - master
+    tags:
+      - '*'
 jobs:
   appstore:
     name: Deliver to App Store
