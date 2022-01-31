@@ -20,6 +20,8 @@ The CI/CD implementation I'm using is based on [this article](https://davidmfino
 ![JetbrainsRider](https://img.shields.io/badge/-JetBrainsRider-2E2E2C?flat&logo=JetBrains)
 ![Aseprite](https://img.shields.io/badge/-Aseprite-f5f5f5?flat&logo=aseprite)
 ![Git](https://img.shields.io/badge/-Git-00599C?style=flat&logo=git)
+![Ruby](https://img.shields.io/badge/-Ruby-00599C?style=flat&logo=ruby)
+![Ruby](https://img.shields.io/badge/-Fastlane-00599C?style=flat&logo=fastlane)
 ![CI/CD](https://img.shields.io/badge/-GameCI-00599C?style=flat&logo=git)
-
+ 
 </div>
