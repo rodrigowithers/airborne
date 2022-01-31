@@ -53,6 +53,12 @@ jobs:
         with:
           lane: 'android internal'
       
+      # Uncomment to upload to alpha branch
+      # - name: Upload to Google Play Alpha
+      #   uses: maierj/fastlane-action@v2.0.1
+      #   with:
+      #     lane: 'android alpha'
+            
       # We do a cleanup to avoid hitting storage limit
       - name: Cleanup
         if: always()
