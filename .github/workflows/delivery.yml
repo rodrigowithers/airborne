@@ -27,6 +27,9 @@ jobs:
         testMode:
           - playmode      
     steps:
+      - name: Update Fastlane
+        run: bundle install
+
       - name: Checkout Repository
         uses: actions/checkout@v2
 
