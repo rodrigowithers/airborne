@@ -1,0 +1,68 @@
+name: Delivery
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
+    branches:
+      - master
+    tags:
+      - '*'
+jobs:
+  appstore:
+    name: Deliver to App Store
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_PLAY_KEY_FILE: ${{ secrets.GOOGLE_PLAY_KEY_FILE }}
+      GOOGLE_PLAY_KEY_FILE_PATH: ${{ format('{0}/fastlane/google-fastlane.json', github.workspace) }}
+      ANDROID_BUILD_FILE_PATH: ${{ format('{0}/build/Android.aab', github.workspace) }}
+      ANDROID_PACKAGE_NAME: ${{ secrets.ANDROID_PACKAGE_NAME }}
+    
+    strategy:
+      fail-fast: true
+      matrix:
+        projectPath:
+          - ./
+        testMode:
+          - playmode      
+    steps:
+      - name: Update Fastlane
+        run: bundle install
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build-Android
+          path: build/Android
+      
+      - name: Add Authentication
+        run: echo "$GOOGLE_PLAY_KEY_FILE" > $GOOGLE_PLAY_KEY_FILE_PATH
+
+      - name: Install Fastlane
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
+        
+      - name: Upload to Google Play Internal
+        uses: maierj/fastlane-action@v2.0.1
+        with:
+          lane: 'android internal'
+      
+      # Uncomment to upload to alpha branch
+      # - name: Upload to Google Play Alpha
+      #   uses: maierj/fastlane-action@v2.0.1
+      #   with:
+      #     lane: 'android alpha'
+            
+      # We do a cleanup to avoid hitting storage limit
+      - name: Cleanup
+        if: always()
+        uses: geekyeggo/delete-artifact@v1
+        with:
+          name: build-Android
+
+

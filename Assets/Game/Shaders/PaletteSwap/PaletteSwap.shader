@@ -27,11 +27,13 @@ Shader "Hidden/PaletteSwap"
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+                float2 pos : TEXCOORD1;
             };
 
-            v2f vert (appdata v)
+            v2f vert(appdata v)
             {
                 v2f o;
+                o.pos = v.vertex;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv;
                 return o;
@@ -39,12 +41,21 @@ Shader "Hidden/PaletteSwap"
 
             sampler2D _MainTex;
             half4x4 _ColorMatrix;
-            
-            fixed4 frag (v2f i) : SV_Target
-            {
-                fixed x = tex2D(_MainTex, i.uv).r;
 
-                return _ColorMatrix[floor(x * 3)];
+            half _Radius;
+            half3 _Position;
+
+            fixed4 frag(v2f i) : SV_Target
+            {
+                half3 col = tex2D(_MainTex, i.uv).rgb;
+                fixed x = col.r;
+                
+                half dist = length(_Position.xy - i.pos);
+
+                if (dist > _Radius)
+                    return _ColorMatrix[floor(x * 3)];
+
+                return half4(col, 1);
             }
             ENDCG
         }

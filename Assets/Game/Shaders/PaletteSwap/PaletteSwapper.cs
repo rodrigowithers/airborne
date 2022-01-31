@@ -10,6 +10,10 @@ namespace Game.Shaders.PaletteSwap
         [SerializeField] private Texture2D _palette;
         [SerializeField] private int _index = 1;
 
+        [SerializeField] private Vector3 _position;
+        [SerializeField] private float _radius;
+
+
         private Matrix4x4 _currentPalette;
         private static readonly int ColorMatrix = Shader.PropertyToID("_ColorMatrix");
 
@@ -30,6 +34,9 @@ namespace Game.Shaders.PaletteSwap
             _currentPalette.SetRow(3, ColorToVec4(_palette.GetPixel(3, _index)));
 
             _material.SetMatrix(ColorMatrix, _currentPalette);
+            
+            _material.SetFloat("_Radius", _radius);
+            _material.SetVector("_Position", _position);
 
             Graphics.Blit(src, dest, _material);
         }
