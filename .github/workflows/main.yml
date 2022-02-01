@@ -1,5 +1,9 @@
 name: Build
-on: [push]
+on: 
+  push:
+    branches:
+      - develop
+
 jobs:
   DecryptKeystore:
     name: Decrypt Keystore
