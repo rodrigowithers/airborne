@@ -81,7 +81,8 @@ jobs:
           
   appstore:
     name: Deliver to App Store
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
+    needs: build
     env:
       GOOGLE_PLAY_KEY_FILE: ${{ secrets.GOOGLE_PLAY_KEY_FILE }}
       GOOGLE_PLAY_KEY_FILE_PATH: ${{ format('{0}/fastlane/google-fastlane.json', github.workspace) }}
