@@ -4,6 +4,81 @@ on:
     branches:
       - master
 jobs:
+  DecryptKeystore:
+    name: Decrypt Keystore
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" > user.keystore.asc
+          gpg -d --passphrase "${{ secrets.ANDROID_KEYSTORE_BASE64_PASS }}" --batch user.keystore.asc > ./user.keystore
+  build:
+    name: Build the project
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        projectPath:
+          - ./
+        testMode:
+          - playmode
+
+    steps:
+      # Checkout
+      - uses: actions/checkout@v2
+        name: Checkout Repository
+        with:
+          lfs: true
+
+      # Cache
+      - uses: actions/cache@v2
+        with: 
+          path: ${{ matrix.projectPath }}/Library
+          key: Library-${{ matrix.projectPath}}
+          restore-keys: |
+            Library-MyProjectName-
+            Library-
+
+      # # Run tests
+      # - uses: game-ci/unity-test-runner@v2
+      #   name: Run Tests
+      #   id: tests
+      #   env:
+      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      #   with:
+      #     projectPath: ${{ matrix.projectPath }}
+      #     testMode: ${{ matrix.testMode }}
+      #     artifactsPath: ${{ matrix.testMode }}-artifacts
+      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
+          
+      # # Upload Test Artifacts
+      # - uses: actions/upload-artifact@v2
+      #   if: always()
+      #   with:
+      #     name: Test Results for ${{ matrix.testMode }}
+      #     path: ${{ steps.tests.outputs.artifactsPath}}
+
+      # Build
+      - name: Build Project
+        uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: ${{ matrix.projectPath }}
+          androidVersionCode: 1
+          androidKeystoreName: user.keystore
+          androidKeystorePass: ${{ SECRETS.ANDROID_KEYSTORE_PASS }}
+          androidKeyaliasName: ${{ SECRETS.ANDROID_KEYALIAS_NAME }}
+          androidKeyaliasPass: ${{ SECRETS.ANDROID_KEYALIAS_PASS }}
+          unityVersion: 2020.3.26f1
+          targetPlatform: Android
+
+      # Upload Build Artifacts
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-Android
+          path: build
+          
   appstore:
     name: Deliver to App Store
     runs-on: ubuntu-latest
