@@ -77,8 +77,8 @@ jobs:
       # Upload Build Artifacts
       - uses: actions/upload-artifact@v2
         with:
-          name: build-Android
-          path: build
+          name: Android
+          path: build/Android
           
   appstore:
     name: Deliver to App Store
