@@ -65,13 +65,12 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           projectPath: ${{ matrix.projectPath }}
-          androidVersionCode: 1
+          androidVersionCode: 2
           androidKeystoreName: user.keystore
           androidKeystorePass: ${{ SECRETS.ANDROID_KEYSTORE_PASS }}
           androidKeyaliasName: ${{ SECRETS.ANDROID_KEYALIAS_NAME }}
           androidKeyaliasPass: ${{ SECRETS.ANDROID_KEYALIAS_PASS }}
           androidAppBundle: true
-          androidVersionCode: 2
           unityVersion: 2020.3.26f1
           targetPlatform: Android
 
