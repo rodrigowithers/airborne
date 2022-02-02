@@ -71,6 +71,7 @@ jobs:
           androidKeyaliasName: ${{ SECRETS.ANDROID_KEYALIAS_NAME }}
           androidKeyaliasPass: ${{ SECRETS.ANDROID_KEYALIAS_PASS }}
           androidAppBundle: true
+          androidVersionCode: 2
           unityVersion: 2020.3.26f1
           targetPlatform: Android
 
