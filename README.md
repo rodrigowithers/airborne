@@ -13,6 +13,7 @@ The CI/CD implementation I'm using is based on [this article](https://davidmfino
 
 #### Status
 ![Main CI](https://github.com/rodrigowithers/airborne/actions/workflows/main.yml/badge.svg?branch=develop)
+![Delivery](https://github.com/rodrigowithers/airborne/actions/workflows/delivery.yml/badge.svg)
 
 #### Technologies used in this project
 
