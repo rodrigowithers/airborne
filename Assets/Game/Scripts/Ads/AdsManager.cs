@@ -1,8 +1,6 @@
-using System;
 using deJex;
-using Game.Scripts.Player;
-using Game.Scripts.PlayerManager;
 using UnityEngine;
+using Game.Scripts.PlayerManager;
 using UnityEngine.Advertisements;
 
 namespace Game.Scripts.Ads
@@ -11,15 +9,21 @@ namespace Game.Scripts.Ads
     {
         
 #if UNITY_ANDROID
-        private string _unitId = "Interstitial_Android";
+        private string _unitId = "Rewarded_Android";
 #elif UNITY_IOS
     private string _unitId = "Interstitial_iOS";
-#endif            
+#endif
+
+        private IPlayerManager _playerManager;
+        private bool _respawnPlayer;
         
+        public void OnUnityAdsShowStart(string placementId) { }
+        public void OnUnityAdsShowClick(string placementId) { }
+
         [ContextMenu("Show Ad")]
         public void ShowAd()
         {
-            Debug.Log($"[ Ads ] Loading Ad: {_unitId}");
+            Debug.Log($"[ Ads ] Showing Ad: {_unitId}");
             Advertisement.Show(_unitId, this);            
         }
         
@@ -38,21 +42,35 @@ namespace Game.Scripts.Ads
         {
             Debug.Log($"Error loading Ad Unit: {placementId} - {error.ToString()} - {message}");
         }
-
-        public void OnUnityAdsShowStart(string placementId) { }
-        public void OnUnityAdsShowClick(string placementId) { }
-        public void OnUnityAdsAdLoaded(string placementId) { }
+        
+        public void OnUnityAdsAdLoaded(string placementId)
+        {
+            Debug.Log($"[ Ads ] Loaded Ad Unit: {placementId}");
+        }
 
         public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
         {
             Debug.Log("[ Ads ] Ad Completed!");
-            Container.Resolve<IPlayerManager>().Respawn();
+            _respawnPlayer = true;
         }
 
         private void Start()
         {
-            var playerManger = Container.Resolve<IPlayerManager>();
-            playerManger.OnPlayerDied += ShowAd;
+            _playerManager = Container.Resolve<IPlayerManager>();
+            _playerManager.OnPlayerDied += ShowAd;
+        }
+
+        private void Update()
+        {
+            if (_respawnPlayer)
+            {
+                Debug.Log("Respawning Player");
+                
+                _respawnPlayer = false;
+                _playerManager.Respawn();
+
+                LoadAd();
+            }
         }
     }
 }

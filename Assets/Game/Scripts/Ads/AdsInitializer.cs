@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using deJex;
+using UnityEngine;
+using System.Collections;
 using UnityEngine.Advertisements;
 
 namespace Game.Scripts.Ads
@@ -13,25 +15,40 @@ namespace Game.Scripts.Ads
 #endif
 
         [SerializeField] private AdsManager _manager;
-        
-        private static bool _testMode = true;
+        [SerializeField] private GameObject _toActivate;
 
-        private void Awake()
-        {
-            // Initialize Ads
-            Debug.Log("[ Ads ] Initializing...");
-            Advertisement.Initialize(_gameId, _testMode);
-        }
+        private static bool _testMode => Container.Resolve<IGetAdTestMode>().GetAdTestMode();
 
         public void OnInitializationComplete()
         {
             Debug.Log("[ Ads ] Ads Initialized!");
-            _manager.LoadAd();
+            // _manager.LoadAd();
         }
 
         public void OnInitializationFailed(UnityAdsInitializationError error, string message)
         {
             Debug.Log($"[ Ads ] Initialization failed: {error.ToString()} - {message}");
+        }
+        
+        private IEnumerator Start()
+        {
+            if (Advertisement.isSupported)
+            {
+                Advertisement.Initialize(_gameId, _testMode);
+                Debug.Log($"[ Ads ] Initializing with TestMode = {_testMode}");
+            }
+
+            // Wait until Unity Ads is initialized
+            while (!Advertisement.isInitialized)
+            {
+                Debug.Log($"[ Ads ] ... ");
+                yield return new WaitForEndOfFrame();
+            }
+            
+            Debug.Log($"[ Ads ] Initialized! ");
+
+            _toActivate.SetActive(true);
+            _manager.LoadAd();
         }
     }
 }

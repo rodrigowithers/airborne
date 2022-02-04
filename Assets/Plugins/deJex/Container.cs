@@ -7,7 +7,7 @@ namespace deJex
     [DefaultExecutionOrder(Int32.MinValue)]
     public static class Container
     {
-        private static readonly Dictionary<Type, object> _contracts = new Dictionary<Type, object>();
+        private static Dictionary<Type, object> _contracts; 
 
         public static Binding Bind<TGeneric>()
         {
@@ -52,8 +52,14 @@ namespace deJex
             }
             catch (Exception e)
             {
-                throw new NotImplementedException($"Can't resolve contract for {typeof(T)}");
+                throw new NotImplementedException($"Can't resolve contract for {typeof(T)}: {e.Message}");
             }
+        }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+        private static void Initialize()
+        {
+            _contracts = new Dictionary<Type, object>();
         }
     }
 }
