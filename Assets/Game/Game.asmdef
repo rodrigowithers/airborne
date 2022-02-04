@@ -2,7 +2,8 @@
     "name": "Gmae",
     "rootNamespace": "",
     "references": [
-        "GUID:80e0fa09c565ee94d9c068023603efe2"
+        "GUID:80e0fa09c565ee94d9c068023603efe2",
+        "GUID:ff6de30450f3748908ff580f6ec64d9a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
