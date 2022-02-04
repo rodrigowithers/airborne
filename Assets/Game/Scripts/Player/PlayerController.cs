@@ -1,5 +1,7 @@
+using System.Threading.Tasks;
 using deJex;
 using Game.Scripts.Boss;
+using Game.Scripts.PlayerManager;
 using Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -70,12 +72,17 @@ namespace Game.Scripts.Player
             _kickDirection = direction;
         }
 
-        private void Die()
+        private async void Die()
         {
             Instantiate(_deathParticles, transform.position, Quaternion.identity);
-            Container.Resolve<IPlayerManager>().PlayerDead = true;
-
             Destroy(this.gameObject);
+
+            await Task.Delay(500);
+            
+            var manager = Container.Resolve<IPlayerManager>();
+            manager.PlayerDead = true;
+            manager.OnPlayerDied.Invoke();
+
         }
 
         private void Awake()
