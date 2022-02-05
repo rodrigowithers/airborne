@@ -47,7 +47,7 @@ namespace Game.Scripts.Ads
             
             Debug.Log($"[ Ads ] Initialized! ");
 
-            _toActivate.SetActive(true);
+            // _toActivate.SetActive(true);
             _manager.LoadAd();
         }
     }

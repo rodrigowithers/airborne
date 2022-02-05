@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using deJex;
 using Game.Scripts.Boss;
@@ -17,6 +18,7 @@ namespace Game.Scripts.Player
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private LayerMask _damageLayer;
         [SerializeField] private LayerMask _enemyLayer;
+        [SerializeField] private LayerMask _springLayer;
 
         [SerializeField] private ParticleSystem _bounceParticles;
         [SerializeField] private GameObject _deathParticles;
@@ -30,7 +32,7 @@ namespace Game.Scripts.Player
 
         private bool _drag;
         private bool _kicking;
-        
+
         [field: SerializeField] public float BounceDelay { get; set; } = 0.5f;
         public float BounceCooldown { get; set; }
 
@@ -40,7 +42,7 @@ namespace Game.Scripts.Player
             {
                 if (this == null)
                     return Vector3.zero;
-                
+
                 return transform.position;
             }
         }
@@ -78,11 +80,10 @@ namespace Game.Scripts.Player
             Destroy(this.gameObject);
 
             await Task.Delay(500);
-            
+
             var manager = Container.Resolve<IPlayerManager>();
             manager.PlayerDead = true;
             manager.OnPlayerDied.Invoke();
-
         }
 
         private void Awake()
@@ -171,6 +172,15 @@ namespace Game.Scripts.Player
             if (_damageLayer == 1 << other.gameObject.layer)
             {
                 Die();
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (_springLayer == 1 << other.gameObject.layer)
+            {
+                other.GetComponent<Spring.Spring>().Trigger();
+                Kick((transform.position - other.transform.position).normalized);
             }
         }
     }
